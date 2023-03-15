@@ -1,5 +1,5 @@
-create table employee1(emp_id int, emp_name varchar(20), emp_city varchar(50),emp_dob date,adhaar_no int);
-Query OK, 0 rows affected (0.01 sec)
+1) create table employee1(emp_id int, emp_name varchar(20), emp_city varchar(50),emp_dob date,adhaar_no int);
+   Query OK, 0 rows affected (0.01 sec)
 
 mysql> desc employee1;
 +-----------+-------------+------+-----+---------+-------+
@@ -12,9 +12,11 @@ mysql> desc employee1;
 | adhaar_no | int         | YES  |     | NULL    |       |
 +-----------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
-create table students1(roll_no int primary key, name varchar(20)not null,age int check(age<100),gender varchar(20) default'm',address
- varchar(20));
-Query OK, 0 rows affected (0.02 sec)
+
+
+2) create table students1(roll_no int primary key, name varchar(20)not null,age int check(age<100),gender varchar(20) default'm',address
+   varchar(20));
+   Query OK, 0 rows affected (0.02 sec)
 
 desc students1; 
 +---------+-------------+------+-----+---------+-------+
@@ -27,3 +29,38 @@ desc students1;
 | address | varchar(20) | YES  |     | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
+
+
+3) create temporary table students2 select *from students1;
+   Query OK, 0 rows affected (0.00 sec)
+   Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc students2;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| roll_no | int         | NO   |     | NULL    | NULL  |
+| name    | varchar(20) | NO   |     | NULL    | NULL  |
+| age     | int         | YES  |     | NULL    | NULL  |
+| gender  | varchar(20) | YES  |     | m       | NULL  |
+| address | varchar(20) | YES  |     | NULL    | NULL  |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+4) create table if not exists employee_dup select* from employee1;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee_dup;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| emp_id    | int         | YES  |     | NULL    |       |
+| emp_name  | varchar(20) | YES  |     | NULL    |       |
+| emp_city  | varchar(50) | YES  |     | NULL    |       |
+| emp_dob   | date        | YES  |     | NULL    |       |
+| adhaar_no | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+5)
