@@ -12,3 +12,18 @@ mysql> desc employee1;
 | adhaar_no | int         | YES  |     | NULL    |       |
 +-----------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
+create table students1(roll_no int primary key, name varchar(20)not null,age int check(age<100),gender varchar(20) default'm',address
+ varchar(20));
+Query OK, 0 rows affected (0.02 sec)
+
+desc students1; 
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| roll_no | int         | NO   | PRI | NULL    |       |
+| name    | varchar(20) | NO   |     | NULL    |       |
+| age     | int         | YES  |     | NULL    |       |
+| gender  | varchar(20) | YES  |     | m       |       |
+| address | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
