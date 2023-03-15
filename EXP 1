@@ -1,4 +1,8 @@
-//QUESTION 1
+                            EXPERIMENT NO: 1.1 DDL COMMANDS
+                             *******************************
+
+
+//QUESTION 1??????????????????
 1) create table employee1(emp_id int, emp_name varchar(20), emp_city varchar(50),emp_dob date,adhaar_no int);
    Query OK, 0 rows affected (0.01 sec)
 
@@ -14,7 +18,7 @@ mysql> desc employee1;
 +-----------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-//QUESTION 2
+//QUESTION 2?????????????????
 2) create table students1(roll_no int primary key, name varchar(20)not null,age int check(age<100),gender varchar(20) default'm',address
    varchar(20));
    Query OK, 0 rows affected (0.02 sec)
@@ -97,3 +101,6 @@ mysql> DESC PRODUCT;
 | PRICE  | int         | YES  |     | 0       |       |
 +--------+-------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
+
+
+//ADD QUESTION
