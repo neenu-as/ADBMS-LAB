@@ -2,7 +2,9 @@
                              *******************************
 
 
-//QUESTION 1??????????????????
+//QUESTION 1
+1.        Create a table EMPLOYEE have the following fields (emp_id, name,city,dob,adhar_no).
+
 1) create table employee1(emp_id int, emp_name varchar(20), emp_city varchar(50),emp_dob date,adhaar_no int);
    Query OK, 0 rows affected (0.01 sec)
 
@@ -18,7 +20,12 @@ mysql> desc employee1;
 +-----------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-//QUESTION 2?????????????????
+//QUESTION 2 : Create a table STUDENT have the fields(roll_no, name, age, address, gender)and add following constraints on it.
+ Roll_no – Primary key
+               Name – does not allow null values
+               Age- must be in between (0-99), does not allow null values
+               Gender- default value is ‘m’
+
 2) create table students1(roll_no int primary key, name varchar(20)not null,age int check(age<100),gender varchar(20) default'm',address
    varchar(20));
    Query OK, 0 rows affected (0.02 sec)
@@ -35,7 +42,8 @@ desc students1;
 +---------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-//QUESTION 3
+//QUESTION 3:   Create a temporary table STUDENT1 of STUDENT relation.
+
 3) create temporary table students2 select *from students1;
    Query OK, 0 rows affected (0.00 sec)
    Records: 0  Duplicates: 0  Warnings: 0
@@ -52,7 +60,9 @@ mysql> desc students2;
 +---------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-//QUESTION 4
+//QUESTION4.      Create a duplicate table of EMPLOYEE.
+    
+    
 4) create table if not exists employee_dup select* from employee1;
 Query OK, 0 rows affected (0.02 sec)
 Records: 0  Duplicates: 0  Warnings: 0
