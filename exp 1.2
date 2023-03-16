@@ -1,1 +1,23 @@
-//
+//  a) DML COMMANDS-INSERT
+                       1.      Insert values in EMPLOYEE table.
+                       2.      Insert values in STUDENT table.
+                       3.      Insert values in INVOICE database. 
+     
+     
+     
+//1.      Insert values in EMPLOYEE table.
+insert into employee1 values(01,'neenu','calicut',2001,123445678);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> desc employee1;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| SSN       | int         | YES  | UNI | NULL    |       |
+| emp_name  | varchar(20) | YES  |     | NULL    |       |
+| emp_city  | varchar(50) | YES  |     | NULL    |       |
+| emp_dob   | year        | YES  |     | NULL    |       |
+| adhaar_no | int         | YES  | UNI | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
