@@ -80,11 +80,20 @@ mysql> desc employee_dup;
 5 rows in set (0.01 sec)
 
 
-//QUESTION 5
+//QUESTION 5: Create an INVOICE database and having following tables.
+
+                      Customer(id, name, address, city, ph_no)
+                      Product(pid,  pname, price (default 0))
+                      Invoice_master(inv_id, cust_id(FK), inv_date)
+                      Invoice_item(inv_id (FK),  pid(FK), quantity)
+                      
+                      
 5)create database INVOICE;
 Query OK, 1 row affected (0.01 sec)
 
 USE DATABASES INVOICE;
+
+// CUSTOMER TABLE
 CREATE TABLE CUSTOMER(C_ID INT PRIMARY KEY,NAME VARCHAR(20),ADDRESS VARCHAR(35),CITY VARCHAR(25),PH_NO INT);
 Query OK, 0 rows affected (0.02 sec)
 
@@ -99,6 +108,9 @@ mysql> DESC CUSTOMER;
 | PH_NO   | int         | YES  |     | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 5 rows in set (0.01 sec)
+
+// PRODUCT TABLE
+
  CREATE TABLE PRODUCT(P_ID INT PRIMARY KEY,P_NAME VARCHAR(15),PRICE INT DEFAULT'0');
 Query OK, 0 rows affected (0.01 sec)
 
@@ -113,4 +125,34 @@ mysql> DESC PRODUCT;
 3 rows in set (0.00 sec)
 
 
-//ADD QUESTION
+// INVOICE_MASTER
+CREATE TABLE INVOICE_MASTER(INV_ID INT PRIMARY KEY,CUST_ID INT,INV_DATE DATE,FOREIGN KEY(CUST_ID) REFERENCES CUSTOMER(C_ID));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DESC INVOICE_MASTER;
++----------+------+------+-----+---------+-------+
+| Field    | Type | Null | Key | Default | Extra |
++----------+------+------+-----+---------+-------+
+| INV_ID   | int  | NO   | PRI | NULL    |       |
+| CUST_ID  | int  | YES  | MUL | NULL    |       |
+| INV_DATE | date | YES  |     | NULL    |       |
++----------+------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+
+//INVOICE_ITEM
+
+CREATE TABLE INVOICE_ITEM(INV_ID  INT,PID INT ,QUANTITY INT,FOREIGN KEY(INV_ID) REFERENCES INVOICE_MASTER(INV_ID),FOREIGN KEY(PID) REFERENCES PRODUCT(P_ID));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DESC INVOICE_ITEM;
++----------+------+------+-----+---------+-------+
+| Field    | Type | Null | Key | Default | Extra |
++----------+------+------+-----+---------+-------+
+| INV_ID   | int  | YES  | MUL | NULL    |       |
+| PID      | int  | YES  | MUL | NULL    |       |
+| QUANTITY | int  | YES  |     | NULL    |       |
++----------+------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+
