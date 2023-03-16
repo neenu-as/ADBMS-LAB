@@ -1,6 +1,7 @@
                             EXPERIMENT NO: 1.1 DDL COMMANDS
                              *******************************
-
+A PART
+******
 
 //QUESTION 1
 1.        Create a table EMPLOYEE have the following fields (emp_id, name,city,dob,adhar_no).
