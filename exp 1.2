@@ -272,4 +272,92 @@ mysql> SELECT * FROM INVOICE_ITEM;
 +--------+------+----------+
 7 rows in set (0.00 sec)
 
+  
+ // b)DML COMMANDS- UPDATE
+ 1. Update the price of a particular product.
+ 
+ mysql> UPDATE PRODUCT SET PRICE=45 WHERE P_ID=3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
 
+mysql> SELECT * FROM PRODUCT;
++------+---------------+-------+
+| P_ID | P_NAME        | PRICE |
++------+---------------+-------+
+|    1 | PENCIL        |    25 |
+|    2 | PEN           |    25 |
+|    3 | NOTEBOOK      |    45 |
+|    4 | BLUELady      |   550 |
+|    5 | fog           |   600 |
+|    6 | nudetwist     |   800 |
+|    7 | floor cleaner |   900 |
++------+---------------+-------+
+7 rows in set (0.00 sec)
+
+2. Change the name of city ‘calicut’ to ‘kozhikode’ in the customer table. 
+mysql> UPDATE CUSTOMER SET CITY='KOZHIKODE' WHERE C_ID= 3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM CUSTOMER;
++------+--------+-------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS           | CITY      | PH_NO      |
++------+--------+-------------------+-----------+------------+
+|    1 | SREYA  | VADASSHERY        | THRISSUR  | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL       | VAYANAD   | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL  | KOZHIKODE | 9339834920 |
+|    4 | NEETHU | PULLIYEAL         | CALICUT   | 9399834920 |
+|    5 | GEETHU | VADAKKE PULLIYEAL | CALICUT   | 8299834920 |
+|    6 | REETHU | KIZHKKE PULLIYEAL | CALICUT   | 8299834420 |
+|    7 | MEENU  | KIZHKKEDATH       | CALICUT   | 8199834420 |
+|    8 | MANJU  | THEKKE KUZHEEL    | CALICUT   | NULL       |
++------+--------+-------------------+-----------+------------+
+8 rows in set (0.00 sec)
+
+3. Update all prices with 2% of its original price. 
+mysql> UPDATE PRODUCT SET PRICE=PRICE+(PRICE*2/100);
+Query OK, 7 rows affected (0.00 sec)
+Rows matched: 7  Changed: 7  Warnings: 0
+
+mysql> SELECT * FROM PRODUCT;
++------+---------------+-------+
+| P_ID | P_NAME        | PRICE |
++------+---------------+-------+
+|    1 | PENCIL        |    26 |
+|    2 | PEN           |    26 |
+|    3 | NOTEBOOK      |    46 |
+|    4 | BLUELady      |   561 |
+|    5 | fog           |   612 |
+|    6 | nudetwist     |   816 |
+|    7 | floor cleaner |   918 |
++------+---------------+-------+
+7 rows in set (0.00 sec)
+4. Change the address, city, phone number of a particular customer. 
+
+mysql> UPDATE CUSTOMER SET CITY='KOZHIKODE',ADDRESS='THEKKEDATH',PH_NO=8281126781  WHERE C_ID= 5;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM CUSTOMER;
++------+--------+-------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS           | CITY      | PH_NO      |
++------+--------+-------------------+-----------+------------+
+|    1 | SREYA  | VADASSHERY        | THRISSUR  | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL       | VAYANAD   | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL  | KOZHIKODE | 9339834920 |
+|    4 | NEETHU | PULLIYEAL         | CALICUT   | 9399834920 |
+|    5 | GEETHU | THEKKEDATH        | KOZHIKODE | 8281126781 |
+|    6 | REETHU | KIZHKKE PULLIYEAL | CALICUT   | 8299834420 |
+|    7 | MEENU  | KIZHKKEDATH       | CALICUT   | 8199834420 |
+|    8 | MANJU  | THEKKE KUZHEEL    | CALICUT   | NULL       |
++------+--------+-------------------+-----------+------------+
+8 rows in set (0.00 sec)
+ 
+5. Change the quantity of a purchased product of inv_id ‘001’
+
+
+
+
+
+
+ 
