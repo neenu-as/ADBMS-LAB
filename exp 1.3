@@ -1,1 +1,43 @@
 
+                                                TCL AND DCL COMMANDS
+                                                    ********************
+
+
+
+a) TCL COMMANDS
+----------------
+
+1.Commit 
+
+
+mysql> SET AUTOCOMMIT=OFF;
+mysql> select * from employee1;
++------+----------+-----------+---------+-----------+
+| SSN  | emp_name | emp_city  | emp_dob | adhaar_no |
++------+----------+-----------+---------+-----------+
+|    1 | neenu    | calicut   |    2001 | 123445678 |
+|    2 | neena    | calicut   |    2001 | 123445698 |
+|    3 | meera    | malapuram |    2001 | 122445698 |
+|    4 | dheera   | kottayam  |    2001 | 123445798 |
+|    5 | hera     | kottayam  |    2001 | 123445748 |
++------+----------+-----------+---------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employee1 value( 6,'kavya','malappuram',2002,121223345);
+mysql> COMMIT;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from EMPLOYEE;
++------+--------+----------+------+----------+
+| SSN  | name   | city     | dob  | adhar_no |
++------+--------+----------+------+----------+
+|    1 | MARIA  | KOCHI    | 1992 |    12347 |
+|    2 | ADAM   | MUMBAI   | 1995 |    12456 |
+|    3 | ROSLIN | BANGLORE | 1999 |    45678 |
+|    4 | JACOB  | DELHI    | 1998 |    34567 |
+|    5 | ALICE  | JAIPUR   | 1999 |    34985 |
++------+--------+----------+------+----------+
+5 rows in set (0.00 sec)
+        
+        ***********************************************************************
+        
