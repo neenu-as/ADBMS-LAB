@@ -458,7 +458,22 @@ mysql>  select * from PRODUCT;
 7 rows in set (0.00 sec)
 
 
+mysql> DELETE FROM  INVOICE_ITEM WHERE INV_ID= 1 AND PID= 2;
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  select * from INVOICE_ITEM;
++--------+------+----------+
+| INV_ID | PID  | QUANTITY |
++--------+------+----------+
+|      2 |    4 |       32 |
+|      4 |    3 |       25 |
+|      4 |    4 |       25 |
++--------+------+----------+
+3 rows in set (0.00 sec)
 
 
-
+               *************
+ 4. Delete details of employees who does not have phone number. 
+ 
+ 
  
