@@ -476,4 +476,62 @@ mysql>  select * from INVOICE_ITEM;
  4. Delete details of employees who does not have phone number. 
  
  
- 
+mysql> SELECT * FROM CUSTOMER;
++------+--------+-------------------+----------+------------+
+| C_ID | NAME   | ADDRESS           | CITY     | PH_NO      |
++------+--------+-------------------+----------+------------+
+|    1 | SREYA  | VADASSHERY        | THRISSUR | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL       | VAYANAD  | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL  | CALICUT  | 9339834920 |
+|    4 | NEETHU | PULLIYEAL         | CALICUT  | 9399834920 |
+|    5 | GEETHU | VADAKKE PULLIYEAL | CALICUT  | 8299834920 |
+|    6 | REETHU | KIZHKKE PULLIYEAL | CALICUT  | 8299834420 |
+|    7 | MEENU  | KIZHKKEDATH       | CALICUT  | 8199834420 |
+|    8 | MANJU  | THEKKE KUZHEEL    | CALICUT  | NULL       |
++------+--------+-------------------+----------+------------+
+8 rows in set (0.00 sec)
+
+mysql> DELETE FROM CUSTOMER WHERE PH_NO IS NULL;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM CUSTOMER;
++------+--------+-------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS           | CITY      | PH_NO      |
++------+--------+-------------------+-----------+------------+
+|    1 | SREYA  | VADASSHERY        | THRISSUR  | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL       | VAYANAD   | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL  | KOZHIKODE | 9339834920 |
+|    4 | NEETHU | PULLIYEAL         | CALICUT   | 9399834920 |
+|    5 | GEETHU | THEKKEDATH        | KOZHIKODE | 8281126781 |
+|    6 | REETHU | KIZHKKE PULLIYEAL | CALICUT   | 8299834420 |
+|    7 | MEENU  | KIZHKKEDATH       | CALICUT   | 8199834420 |
++------+--------+-------------------+-----------+------------+
+7 rows in set (0.00 sec)
+                 
+                  *************
+ 5. Delete all records from STUDENT table.  
+
+mysql> select * from  students1;
++---------+-------+------+--------+-----------------+
+| roll_no | name  | age  | gender | address         |
++---------+-------+------+--------+-----------------+
+|       2 | aali  |   12 | male   | thekke valappil |
+|       3 | sneha |   15 | female | kakkatil        |
+|       4 | neha  |   15 | female | kakkatil        |
+|       5 | radha |   15 | female | kakka poyil     |
+|       6 | rahul |   18 | male   |  poyil          |
+|       7 | gokul |   18 | male   |  calikulam      |
++---------+-------+------+--------+-----------------+
+6 rows in set (0.00 sec)
+
+         mysql> delete from students1;
+Query OK, 6 rows affected (0.00 sec)
+
+mysql> select * from  students1;
+Empty set (0.00 sec)
+         
+         
+                  *************      
+ 6. Delete Invoice details of a particular customer.               
+                  
+                         
