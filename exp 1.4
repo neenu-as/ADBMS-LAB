@@ -18,32 +18,33 @@ mysql>select * from CUSTOMER;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 2.    List pname, price of all products.
+
+mysql> select P_NAME,PRICE from PRODUCT;
++---------------+-------+
+| P_NAME        | PRICE |
++---------------+-------+
+| PENCIL        |    26 |
+| PEN           |    26 |
+| NOTEBOOK      |    46 |
+| BLUELady      |   561 |
+| fog           |   612 |
+| nudetwist     |   816 |
+| floor cleaner |   918 |
++---------------+-------+
+7 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
 3.    List all invoice items, avoid duplicates.
 4.    List product price between 50rs and 150rs
 5.    List the customer details who lives in ‘ekm’,’tvm’.
