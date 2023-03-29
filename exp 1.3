@@ -154,3 +154,16 @@ select *from employee1;
 b) DCL COMMAND
           Create two users user1, user2
          1.      GRANT
+ ->Give insert and select privilege to user 1 on customer table in the invoice database.
+ ->Give update and delete privilege to user 2 on all tables in the invoice database.
+ 
+ mysql> create user 'user1'@'localhost' identified by 'user1@neenu';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create user 'user2'@'localhost' identified by 'user2@neenu';
+Query OK, 0 rows affected (0.01 sec)
+
+
+ 
+             
+         
