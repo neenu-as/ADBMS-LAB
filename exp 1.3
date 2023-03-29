@@ -164,6 +164,21 @@ mysql> create user 'user2'@'localhost' identified by 'user2@neenu';
 Query OK, 0 rows affected (0.01 sec)
 
 
+mysql> GRANT SELECT,INSERT ON Customer TO 'user1'@'localhost';
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> show grants;
++---------------------------------------------------------------------+
+| Grants for user1@localhost                                          |
++---------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `user1`@`localhost`                           |
+| GRANT SELECT, INSERT ON `INVOICE`.`CUSTOMER` TO `user1`@`localhost` |
++---------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+
+
  
              
          
