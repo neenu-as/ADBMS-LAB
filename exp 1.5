@@ -1,0 +1,121 @@
+1.5  ACCESSING DATABASE: (SUBQUERY)
+
+mysql> select * from CUSTOMER;
++------+--------+-------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS           | CITY      | PH_NO      |
++------+--------+-------------------+-----------+------------+
+|    1 | SREYA  | VADASSHERY        | THRISSUR  | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL       | VAYANAD   | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL  | KOZHIKODE | 9339834920 |
+|    4 | NEETHU | PULLIYEAL         | CALICUT   | 9399834920 |
+|    5 | GEETHU | THEKKEDATH        | KOZHIKODE | 8281126781 |
+|    6 | REETHU | KIZHKKE PULLIYEAL | CALICUT   | 8299834420 |
+|    7 | MEENU  | KIZHKKEDATH       | CALICUT   | 8199834420 |
+|    8 | VINU   | THEKKEDATH        | IDUKKI    | NULL       |
++------+--------+-------------------+-----------+------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from PRODUCT;
++------+---------------+-------+
+| P_ID | P_NAME        | PRICE |
++------+---------------+-------+
+|    1 | PENCIL        |    26 |
+|    2 | PEN           |    26 |
+|    3 | NOTEBOOK      |    46 |
+|    4 | BLUELady      |   561 |
+|    5 | fog           |   612 |
+|    6 | nudetwist     |   816 |
+|    7 | floor cleaner |   918 |
++------+---------------+-------+
+
+mysql> select * from INVOICE_MASTER;
++--------+---------+------------+
+| INV_ID | CUST_ID | INV_DATE   |
++--------+---------+------------+
+|      1 |       1 | 2022-05-03 |
+|      2 |       2 | 2022-06-03 |
+|      3 |       3 | 2022-07-03 |
+|      4 |       4 | 2022-08-03 |
+|      6 |       6 | 2022-09-04 |
+|      7 |       7 | 2022-09-05 |
+|      9 |       2 | 2022-03-05 |
+|     10 |       2 | 2022-03-05 |
++--------+---------+------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from INVOICE_ITEM;
++--------+------+----------+
+| INV_ID | PID  | QUANTITY |
++--------+------+----------+
+|      2 |    4 |       32 |
+|      4 |    3 |       25 |
+|      4 |    4 |       25 |
++--------+------+----------+
+3 rows in set (0.00 sec)
+
+
+7 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+1.    List the customer names of invoice date 5TH MARCH 2022.
+
+
+mysql> select  NAME  FROM CUSTOMER WHERE C_ID IN (SELECT CUST_ID FROM INVOICE_MASTER WHERE INV_DATE ="2022-03-05");
++-------+
+| NAME  |
++-------+
+| KUTTU |
++-------+
+1 row in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+2.    List the product name and price of each invoice item.
+
+
+mysql> SELECT P_NAME,PRICE FROM PRODUCT WHERE P_ID IN( SELECT PID FROM INVOICE_ITEM);
++----------+-------+
+| P_NAME   | PRICE |
++----------+-------+
+| NOTEBOOK |    46 |
+| BLUELady |   561 |
++----------+-------+
+2 rows in set (0.00 sec)
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+3.    List the product names, only include their purchased quantity more than 3.
+mysql> SELECT P_NAME FROM PRODUCT WHERE P_ID IN( SELECT PID FROM INVOICE_ITEM WHERE QUANTITY >25);
++----------+
+| P_NAME   |
++----------+
+| BLUELady |
++----------+
+1 row in set (0.00 sec)
+-----------------------------------------------------------------------------------------------------------------------------
+
+4.    Find the product that has no sale.
+mysql> SELECT * FROM PRODUCT WHERE P_ID NOT IN(SELECT P_ID FROM INVOICE_ITEM);
+Empty set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+5.    List the customer names who purchased the items ‘pen’ and ‘pencil’.
+
+mysql> SELECT NAME FROM CUSTOMER WHERE C_ID IN (SELECT CUST_ID FROM INVOICE_MASTER WHERE INV_ID IN (SELECT INV_ID FROM INVOICE_ITEM WHERE P_ID FROM PRODUCT WHERE P_NAME ="PEN" OR P_NAME =" PENCIL")));
+
+
+
+
+
+
+
+
+6.    Display the purchased product details of the customer ’xyz’.
+7.    List the names of all customers who have purchased at least 2 products, make sure that no duplicate names in the result.
