@@ -15,7 +15,7 @@ mysql>select * from CUSTOMER;
 7 rows in set (0.00 sec)
 
 
-
+--------------------------------------------------------------------------
 
 
 2.    List pname, price of all products.
@@ -34,7 +34,7 @@ mysql> select P_NAME,PRICE from PRODUCT;
 +---------------+-------+
 7 rows in set (0.00 sec)
 
-
+--------------------------------------------------------------------------------------------------------------------
 3.    List all invoice items, avoid duplicates.
 
 
@@ -47,7 +47,7 @@ mysql> SELECT DISTINCT INV_ID FROM INVOICE_ITEM;
 +--------+
 2 rows in set (0.01 sec)
 
-
+-----------------------------------------------------------------------------------------------------------------
 
 4.    List product price between 46rs and 816rs
 mysql> select * from PRODUCT where PRICE between 46 and 816;
@@ -61,7 +61,7 @@ mysql> select * from PRODUCT where PRICE between 46 and 816;
 +------+-----------+-------+
 4 rows in set (0.00 sec)
 
-
+------------------------------------------------------------------------------------------------------------------
 5.    List the customer details who lives in ‘THRISSUR’,’KOZHIKODE'.
 mysql> select * from CUSTOMER where  CITY=' THRISSUR' or CITY='KOZHIKODE';
 +------+--------+------------------+-----------+------------+
@@ -72,7 +72,7 @@ mysql> select * from CUSTOMER where  CITY=' THRISSUR' or CITY='KOZHIKODE';
 +------+--------+------------------+-----------+------------+
 2 rows in set (0.00 sec)
 
-
+-------------------------------------------------------------------------------------------------------------------
 6.    List the invoice details from 1st January 2023 to 15th February 2023
 
 mysql> select * from INVOICE_MASTER;
@@ -104,7 +104,7 @@ mysql> select * from INVOICE_MASTER where INV_DATE between ' 2022-05-03' and  '2
 +--------+---------+------------+
 6 rows in set, 8 warnings (0.00 sec)
 
-
+-------------------------------------------------------------------------------------------
 
 7.    List the customer details who not live in ‘CALICUT’.
 
@@ -118,7 +118,7 @@ mysql> select * from CUSTOMER WHERE CITY!="CALICUT";
 |    5 | GEETHU | THEKKEDATH       | KOZHIKODE | 8281126781 |
 +------+--------+------------------+-----------+------------+
 4 rows in set (0.00 sec)
-
+-------------------------------------------------------------------------------------------------
 
 8.    List the customers who have no phone number.
 
@@ -133,7 +133,7 @@ mysql> select * from CUSTOMER WHERE PH_NO IS null;
 +------+------+------------+--------+-------+
 1 row in set (0.00 sec)
 
-
+--------------------------------------------------------------------------------------------------------
 
 9.    Display customer names in descending order.
 mysql> select  NAME from CUSTOMER ORDER BY NAME DESC;
@@ -152,7 +152,7 @@ mysql> select  NAME from CUSTOMER ORDER BY NAME DESC;
 8 rows in set (0.00 sec)
 
 
-
+--------------------------------------------------------------------------------------------------------
 
 10. Display the customer details sorted in ascending by city and descending by names.
 
@@ -170,7 +170,7 @@ mysql> SELECT * FROM CUSTOMER ORDER BY CITY ASC, NAME DESC;
 |    2 | KUTTU  | PALLIPOZHIL       | VAYANAD   | 9449834920 |
 +------+--------+-------------------+-----------+------------+
 8 rows in set (0.00 sec)
-
+--------------------------------------------------------------------------------------------------------
 
 11. Find the customer names start with ‘N’.
 
@@ -183,7 +183,7 @@ mysql> select  NAME from CUSTOMER WHERE NAME LIKE 'N%';
 +--------+
 2 rows in set (0.00 sec)
 
-
+--------------------------------------------------------------------------------------------------------
 
 12. Find the customer names who have ‘N’ or ‘a’ in them.
 
@@ -200,7 +200,7 @@ mysql> select  NAME from CUSTOMER WHERE NAME LIKE '%N%' or NAME like'%a%';
 5 rows in set (0.00 sec)
 
  13. Find the customer names who have at least 6 characters.
-1
+--------------------------------------------------------------------------------------------------------
 
 mysql> select  NAME from CUSTOMER WHERE NAME LIKE '______%';
 +--------+
@@ -212,7 +212,7 @@ mysql> select  NAME from CUSTOMER WHERE NAME LIKE '______%';
 +--------+
 3 rows in set (0.00 sec)
 
-
+--------------------------------------------------------------------------------------------------------
 14. List the names of customers their names have ‘R’ in second position.
 mysql> select  NAME from CUSTOMER WHERE NAME LIKE '_R%';
 +-------+
@@ -222,7 +222,7 @@ mysql> select  NAME from CUSTOMER WHERE NAME LIKE '_R%';
 +-------+
 1 row in set (0.00 sec)
 
-
+--------------------------------------------------------------------------------------------------------
 
 15. Find the customer names start with ‘N’ and are at least 3 characters in length.
 mysql> select  NAME from CUSTOMER WHERE NAME LIKE 'N__%';
