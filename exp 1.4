@@ -35,22 +35,97 @@ mysql> select P_NAME,PRICE from PRODUCT;
 7 rows in set (0.00 sec)
 
 
-
-
-
-
-
-
-
-
-
-
 3.    List all invoice items, avoid duplicates.
-4.    List product price between 50rs and 150rs
-5.    List the customer details who lives in ‘ekm’,’tvm’.
+
+
+mysql> SELECT DISTINCT INV_ID FROM INVOICE_ITEM;
++--------+
+| INV_ID |
++--------+
+|      2 |
+|      4 |
++--------+
+2 rows in set (0.01 sec)
+
+
+
+4.    List product price between 46rs and 816rs
+mysql> select * from PRODUCT where PRICE between 46 and 816;
++------+-----------+-------+
+| P_ID | P_NAME    | PRICE |
++------+-----------+-------+
+|    3 | NOTEBOOK  |    46 |
+|    4 | BLUELady  |   561 |
+|    5 | fog       |   612 |
+|    6 | nudetwist |   816 |
++------+-----------+-------+
+4 rows in set (0.00 sec)
+
+
+5.    List the customer details who lives in ‘THRISSUR’,’KOZHIKODE'.
+mysql> select * from CUSTOMER where  CITY=' THRISSUR' or CITY='KOZHIKODE';
++------+--------+------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS          | CITY      | PH_NO      |
++------+--------+------------------+-----------+------------+
+|    3 | NEENU  | THEKKE PULLIYEAL | KOZHIKODE | 9339834920 |
+|    5 | GEETHU | THEKKEDATH       | KOZHIKODE | 8281126781 |
++------+--------+------------------+-----------+------------+
+2 rows in set (0.00 sec)
+
+
 6.    List the invoice details from 1st January 2023 to 15th February 2023
-7.    List the customer details who not live in ‘tvm’.
+
+mysql> select * from INVOICE_MASTER;
++--------+---------+------------+
+| INV_ID | CUST_ID | INV_DATE   |
++--------+---------+------------+
+|      1 |       1 | 2022-05-03 |
+|      2 |       2 | 2022-06-03 |
+|      3 |       3 | 2022-07-03 |
+|      4 |       4 | 2022-08-03 |
+|      6 |       6 | 2022-09-04 |
+|      7 |       7 | 2022-09-05 |
+|      9 |       2 | 2022-03-05 |
+|     10 |       2 | 2022-03-05 |
++--------+---------+------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from INVOICE_MASTER where INV_DATE between ' 2022-05-03' and  '2022-09-05';
+
++--------+---------+------------+
+| INV_ID | CUST_ID | INV_DATE   |
++--------+---------+------------+
+|      1 |       1 | 2022-05-03 |
+|      2 |       2 | 2022-06-03 |
+|      3 |       3 | 2022-07-03 |
+|      4 |       4 | 2022-08-03 |
+|      6 |       6 | 2022-09-04 |
+|      7 |       7 | 2022-09-05 |
++--------+---------+------------+
+6 rows in set, 8 warnings (0.00 sec)
+
+
+
+7.    List the customer details who not live in ‘CALICUT’.
+
+mysql> select * from CUSTOMER WHERE CITY!="CALICUT";
++------+--------+------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS          | CITY      | PH_NO      |
++------+--------+------------------+-----------+------------+
+|    1 | SREYA  | VADASSHERY       | THRISSUR  | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL      | VAYANAD   | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL | KOZHIKODE | 9339834920 |
+|    5 | GEETHU | THEKKEDATH       | KOZHIKODE | 8281126781 |
++------+--------+------------------+-----------+------------+
+4 rows in set (0.00 sec)
+
+
 8.    List the customers who have no phone number.
+
+
+
+
+
 9.    Display customer names in descending order.
 10. Display the customer details sorted in ascending by city and descending by names.
 11. Find the customer names start with ‘A’.
