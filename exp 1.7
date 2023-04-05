@@ -1,8 +1,10 @@
-EXPERIMENT NO: 1.7 OPTIMIZING DATABASE:  (GROUP BY, AGGREGATE FUNCTIONS)
-***************************************************************************
+EXPERIMENT NO: 1.7 
+*******************
+OPTIMIZING DATABASE:  (GROUP BY, AGGREGATE FUNCTIONS)
+******************************************************
 
 
-1.    List product name, price except soap on price order.
+1.    List product name, price except FLOOR CLEANER on price order.
 mysql> select * from PRODUCT;
 +------+---------------+-------+
 | P_ID | P_NAME        | PRICE |
@@ -32,15 +34,61 @@ mysql> select P_NAME,PRICE from PRODUCT where P_NAME !='floor cleaner' order by 
 --------------------------------------------------------------------------------------
 2.    Find minimum, maximum and average price of products.
 
+mysql> select min(PRICE),max(PRICE),avg(PRICE) from PRODUCT;
++------------+------------+------------+
+| min(PRICE) | max(PRICE) | avg(PRICE) |
++------------+------------+------------+
+|         26 |        918 |   429.2857 |
++------------+------------+------------+
+1 row in set (0.00 sec)
 
-
-
-
-
-
-
-
+-------------------------------------------------------------------------------------
 3.     Find number of customers in each city.
+
+mysql> select count(*),CITY from CUSTOMER group by CITY;
++----------+-----------+
+| count(*) | CITY      |
++----------+-----------+
+|        1 | THRISSUR  |
+|        1 | VAYANAD   |
+|        2 | KOZHIKODE |
+|        3 | CALICUT   |
+|        1 | IDUKKI    |
++----------+-----------+
+5 rows in set (0.00 sec)
+------------------------------------------------------------------------------------------
+
+
 4.    Find number of customers in each city, only include city with more than 3 customers.
+mysql> select count(*),CITY from CUSTOMER group by CITY;
++----------+-----------+
+| count(*) | CITY      |
++----------+-----------+
+|        1 | THRISSUR  |
+|        1 | VAYANAD   |
+|        2 | KOZHIKODE |
+|        3 | CALICUT   |
+|        1 | IDUKKI    |
++----------+-----------+
+5 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------------------------------
+
 5.    Show data as displayed ‘who, where’ Eg: ‘customer1 lives in ekm’.
 
+mysql>  select concat(NAME, " lives in ",CITY) as C_ID from CUSTOMER;
++---------------------------+
+| C_ID                      |
++---------------------------+
+| SREYA lives in THRISSUR   |
+| KUTTU lives in VAYANAD    |
+| NEENU lives in KOZHIKODE  |
+| NEETHU lives in CALICUT   |
+| GEETHU lives in KOZHIKODE |
+| REETHU lives in CALICUT   |
+| MEENU lives in CALICUT    |
+| VINU lives in IDUKKI      |
++---------------------------+
+8 rows in set (0.00 sec)
+
+********************************************************************************************************************************
