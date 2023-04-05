@@ -4,20 +4,22 @@ EXPERIMENT NO: 1.6 ACCESSING DATABASES: (VIEWS)
 
 1. Create a view for customers who have purchased products.
 
+mysql> CREATE VIEW CUSTOMER1 AS SELECT * FROM CUSTOMER WHERE C_ID IN (SELECT CUST_ID FROM INVOICE_MASTER);
+Query OK, 0 rows affected (0.00 sec)
 
+mysql> SELECT * FROM CUSTOMER1;
++------+--------+-------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS           | CITY      | PH_NO      |
++------+--------+-------------------+-----------+------------+
+|    1 | SREYA  | VADASSHERY        | THRISSUR  | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL       | VAYANAD   | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL  | KOZHIKODE | 9339834920 |
+|    4 | NEETHU | PULLIYEAL         | CALICUT   | 9399834920 |
+|    6 | REETHU | KIZHKKE PULLIYEAL | CALICUT   | 8299834420 |
+|    7 | MEENU  | KIZHKKEDATH       | CALICUT   | 8199834420 |
++------+--------+-------------------+-----------+------------+
+6 rows in set (0.00 sec)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+--------------------------------------------------------------------------------------------------------------------------------------
 
 2. Create a view for invoice products[cust_name, , inv_id, product_id, quantity]
