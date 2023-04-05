@@ -95,6 +95,9 @@ mysql> SELECT P_NAME FROM PRODUCT WHERE P_ID IN( SELECT PID FROM INVOICE_ITEM WH
 +----------+
 | P_NAME   |
 +----------+
+mysql> SELECT DISTINCT NAME FROM CUSTOMER WHERE C_ID IN(SELECT CUST_ID FROM INVOICE_MASTER WHERE INV_ID IN(SELECT INV_ID FROM INVOICE_ITEM GROUP BY INV_ID HAVING COUNT(*)>2));
+Empty set (0.00 sec)
+
 | BLUELady |
 +----------+
 1 row in set (0.00 sec)
@@ -120,7 +123,7 @@ mysql> SELECT NAME from CUSTOMER where C_ID in (select CUST_ID from INVOICE_MAST
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-6.    Display the purchased product details of the customer ’xyz’.
+6.    Display the purchased product details of the customer ’KUTTU’.
 
 
 mysql> SELECT *FROM PRODUCT WHERE P_ID IN(SELECT PID FROM INVOICE_ITEM WHERE INV_ID IN (SELECT INV_ID FROM INVOICE_MASTER  WHERE CUST_ID IN (SELECT C_ID FROM CUSTOMER WHERE NAME="KUTTU")));
@@ -134,6 +137,9 @@ mysql> SELECT *FROM PRODUCT WHERE P_ID IN(SELECT PID FROM INVOICE_ITEM WHERE INV
 ----------------------------------------------------------------------------------------------------------------------------------------------
 7.    List the names of all customers who have purchased at least 2 products, make sure that no duplicate names in the result.
 
+
+mysql> SELECT DISTINCT NAME FROM CUSTOMER WHERE C_ID IN(SELECT CUST_ID FROM INVOICE_MASTER WHERE INV_ID IN(SELECT INV_ID FROM INVOICE_ITEM GROUP BY INV_ID HAVING COUNT(*)>2));
+Empty set (0.00 sec)
 
 
 
