@@ -3,14 +3,43 @@ EXPERIMENT NO: 1.7 OPTIMIZING DATABASE:  (GROUP BY, AGGREGATE FUNCTIONS)
 
 
 1.    List product name, price except soap on price order.
+mysql> select * from PRODUCT;
++------+---------------+-------+
+| P_ID | P_NAME        | PRICE |
++------+---------------+-------+
+|    1 | PENCIL        |    26 |
+|    2 | PEN           |    26 |
+|    3 | NOTEBOOK      |    46 |
+|    4 | BLUELady      |   561 |
+|    5 | fog           |   612 |
+|    6 | nudetwist     |   816 |
+|    7 | floor cleaner |   918 |
++------+---------------+-------+
+7 rows in set (0.00 sec)
 
-
-
-
-
-
-
+mysql> select P_NAME,PRICE from PRODUCT where P_NAME !='floor cleaner' order by PRICE asc;
++-----------+-------+
+| P_NAME    | PRICE |
++-----------+-------+
+| PENCIL    |    26 |
+| PEN       |    26 |
+| NOTEBOOK  |    46 |
+| BLUELady  |   561 |
+| fog       |   612 |
+| nudetwist |   816 |
++-----------+-------+
+6 rows in set (0.00 sec)
+--------------------------------------------------------------------------------------
 2.    Find minimum, maximum and average price of products.
+
+
+
+
+
+
+
+
+
 3.     Find number of customers in each city.
 4.    Find number of customers in each city, only include city with more than 3 customers.
 5.    Show data as displayed ‘who, where’ Eg: ‘customer1 lives in ekm’.
