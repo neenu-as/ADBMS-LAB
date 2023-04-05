@@ -123,11 +123,21 @@ mysql> SELECT NAME from CUSTOMER where C_ID in (select CUST_ID from INVOICE_MAST
 6.    Display the purchased product details of the customer ’xyz’.
 
 
+mysql> SELECT *FROM PRODUCT WHERE P_ID IN(SELECT PID FROM INVOICE_ITEM WHERE INV_ID IN (SELECT INV_ID FROM INVOICE_MASTER  WHERE CUST_ID IN (SELECT C_ID FROM CUSTOMER WHERE NAME="KUTTU")));
++------+----------+-------+
+| P_ID | P_NAME   | PRICE |
++------+----------+-------+
+|    4 | BLUELady |   561 |
++------+----------+-------+
+1 row in set (0.00 sec)
 
-
-
-
-
-
-
+----------------------------------------------------------------------------------------------------------------------------------------------
 7.    List the names of all customers who have purchased at least 2 products, make sure that no duplicate names in the result.
+
+
+
+
+
+
+
+
