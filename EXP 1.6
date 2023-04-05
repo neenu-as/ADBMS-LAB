@@ -23,3 +23,18 @@ mysql> SELECT * FROM CUSTOMER1;
 --------------------------------------------------------------------------------------------------------------------------------------
 
 2. Create a view for invoice products[cust_name, , inv_id, product_id, quantity]
+
+
+mysql>  create view inv_product as select CUSTOMER.NAME,INVOICE_MASTER.INV_ID,PRODUCT.P_ID,INVOICE_ITEM.QUANTITY from CUSTOMER inner join INVOICE_MASTER on CUSTOMER.C_ID=INVOICE_MASTER.CUST_ID inner join INVOICE_ITEM on INVOICE_MASTER.INV_ID=INVOICE_ITEM.INV_ID inner join PRODUCT on PRODUCT.P_ID=INVOICE_ITEM.PID;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from inv_product;
++--------+--------+------+----------+
+| NAME   | INV_ID | P_ID | QUANTITY |
++--------+--------+------+----------+
+| KUTTU  |      2 |    4 |       32 |
+| NEETHU |      4 |    3 |       25 |
+| NEETHU |      4 |    4 |       25 |
++--------+--------+------+----------+
+3 rows in set (0.00 sec)
+
