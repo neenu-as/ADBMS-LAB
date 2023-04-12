@@ -74,10 +74,24 @@ mysql> select PRODUCT.P_NAME, INVOICE_ITEM.QUANTITY from PRODUCT inner join INVO
 3 rows in set (0.00 sec)
 ---------------------------------------------------------------------------------------------------------------------------
 
-2.    Display invoice details of the transaction dated ’31-01-2022’.
+2.    Display invoice details of the transaction dated ’2022-08-03’.
 
 
+mysql> select CUSTOMER.NAME,PRODUCT.P_NAME,PRODUCT.PRICE,INVOICE_MASTER.INV_ID,INVOICE_MASTER.INV_DATE,INVOICE_ITEM.QUANTITY from CUSTOMER inner join INVOICE_MASTER on CUSTOMER.C_ID=INVOICE_MASTER.CUST_ID inner join INVOICE_ITEM on INVOICE_MASTER.INV_ID=INVOICE_ITEM.INV_ID Inner join PRODUCT on PRODUCT.P_ID=INVOICE_ITEM.PID where INV_DATE='2022-08-03';
++--------+----------+-------+--------+------------+----------+
+| NAME   | P_NAME   | PRICE | INV_ID | INV_DATE   | QUANTITY |
++--------+----------+-------+--------+------------+----------+
+| NEETHU | NOTEBOOK |    46 |      4 | 2022-08-03 |       25 |
+| NEETHU | BLUELady |   561 |      4 | 2022-08-03 |       25 |
++--------+----------+-------+--------+------------+----------+
+2 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------------
 
 
 3.    Display the customer name, product name, invoice date of purchased item ‘pen’.
+
+
+
+
 4.    Display all customer details and invoice details must include customer has not purchased items.
