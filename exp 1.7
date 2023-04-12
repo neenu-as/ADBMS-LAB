@@ -59,18 +59,17 @@ mysql> select count(*),CITY from CUSTOMER group by CITY;
 ------------------------------------------------------------------------------------------
 
 
-4.    Find number of customers in each city, only include city with more than 3 customers.
-mysql> select count(*),CITY from CUSTOMER group by CITY;
-+----------+-----------+
-| count(*) | CITY      |
-+----------+-----------+
-|        1 | THRISSUR  |
-|        1 | VAYANAD   |
-|        2 | KOZHIKODE |
-|        3 | CALICUT   |
-|        1 | IDUKKI    |
-+----------+-----------+
-5 rows in set (0.00 sec)
+4.    Find number of customers in each city, only include city with more than 2customers.
+
+mysql>  select count(*),CITY from CUSTOMER group by CITY having count(*)>2;
++----------+---------+
+| count(*) | CITY    |
++----------+---------+
+|        3 | CALICUT |
++----------+---------+
+1 row in set (0.00 sec)
+
+
 
 ---------------------------------------------------------------------------------------------------------------------------
 
