@@ -95,8 +95,6 @@ mysql> SELECT P_NAME FROM PRODUCT WHERE P_ID IN( SELECT PID FROM INVOICE_ITEM WH
 +----------+
 | P_NAME   |
 +----------+
-mysql> SELECT DISTINCT NAME FROM CUSTOMER WHERE C_ID IN(SELECT CUST_ID FROM INVOICE_MASTER WHERE INV_ID IN(SELECT INV_ID FROM INVOICE_ITEM GROUP BY INV_ID HAVING COUNT(*)>2));
-Empty set (0.00 sec)
 
 | BLUELady |
 +----------+
@@ -104,8 +102,18 @@ Empty set (0.00 sec)
 -----------------------------------------------------------------------------------------------------------------------------
 
 4.    Find the product that has no sale.
-mysql> SELECT * FROM PRODUCT WHERE P_ID NOT IN(SELECT P_ID FROM INVOICE_ITEM);
-Empty set (0.00 sec)
+mysql> SELECT * FROM PRODUCT WHERE P_ID NOT IN(SELECT PID FROM INVOICE_ITEM);
++------+---------------+-------+
+| P_ID | P_NAME        | PRICE |
++------+---------------+-------+
+|    1 | PENCIL        |    26 |
+|    2 | PEN           |    26 |
+|    5 | fog           |   612 |
+|    6 | nudetwist     |   816 |
+|    7 | floor cleaner |   918 |
++------+---------------+-------+
+5 rows in set (0.00 sec)
+
 
 -----------------------------------------------------------------------------------------------------------------------------
 
