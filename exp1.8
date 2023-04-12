@@ -89,9 +89,17 @@ mysql> select CUSTOMER.NAME,PRODUCT.P_NAME,PRODUCT.PRICE,INVOICE_MASTER.INV_ID,I
 -----------------------------------------------------------------------------------------------------------------------------
 
 
-3.    Display the customer name, product name, invoice date of purchased item ‘pen’.
+3.    Display the customer name, product name, invoice date of purchased item ‘BLUELADY’.
 
+mysql> select CUSTOMER.NAME,PRODUCT.P_NAME,INVOICE_MASTER.INV_DATE from CUSTOMER inner join INVOICE_MASTER on CUSTOMER.C_ID=INVOICE_MASTER.CUST_ID inner join INVOICE_ITEM on INVOICE_MASTER.INV_ID=INVOICE_ITEM.INV_ID inner join PRODUCT on PRODUCT.P_ID=INVOICE_ITEM.PID where P_NAME='BLUELADY';
++--------+----------+------------+
+| NAME   | P_NAME   | INV_DATE   |
++--------+----------+------------+
+| KUTTU  | BLUELady | 2022-06-03 |
+| NEETHU | BLUELady | 2022-08-03 |
++--------+----------+------------+
+2 rows in set (0.00 sec)
 
-
+------------------------------------------------------------------------------------------------------------------------------
 
 4.    Display all customer details and invoice details must include customer has not purchased items.
