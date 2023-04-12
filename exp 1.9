@@ -63,12 +63,72 @@ mysql> select * from PRODUCT;
 
 ------------------------------------------------------------------------------------------------
 
-1.      Display customer_id, city  who lives either in ‘CLT’ or in ‘TVM’
+1.      Display customer_id, city  who lives either in ‘KOZHIKODE’ or in ‘VAYANAD’
 
 
+mysql> SELECT C_ID,CITY  FROM CUSTOMER  WHERE CITY="KOZHIKODE" OR city="VAYANAD";
++------+-----------+
+| C_ID | CITY      |
++------+-----------+
+|    2 | VAYANAD   |
+|    3 | KOZHIKODE |
+|    5 | KOZHIKODE |
++------+-----------+
+3 rows in set (0.00 sec)
 
+-----------------------------------------------------------------------------------------------------
 
 
 2.      Display product details with an updated price amount(new price= old price+5rs)
+
+mysql> SELECT *FROM PRODUCT;
++------+---------------+-------+
+| P_ID | P_NAME        | PRICE |
++------+---------------+-------+
+|    1 | PENCIL        |    26 |
+|    2 | PEN           |    26 |
+|    3 | NOTEBOOK      |    46 |
+|    4 | BLUELady      |   561 |
+|    5 | fog           |   612 |
+|    6 | nudetwist     |   816 |
+|    7 | floor cleaner |   918 |
++------+---------------+-------+
+7 rows in set (0.00 sec)
+
+mysql> update PRODUCT set PRICE=PRICE+5;
+Query OK, 7 rows affected (0.00 sec)
+Rows matched: 7  Changed: 7  Warnings: 0
+
+mysql>  select * from PRODUCT;
++------+---------------+-------+
+| P_ID | P_NAME        | PRICE |
++------+---------------+-------+
+|    1 | PENCIL        |    31 |
+|    2 | PEN           |    31 |
+|    3 | NOTEBOOK      |    51 |
+|    4 | BLUELady      |   566 |
+|    5 | fog           |   617 |
+|    6 | nudetwist     |   821 |
+|    7 | floor cleaner |   923 |
++------+---------------+-------+
+7 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------
 3.      Display customer details who doesn’t have phone number and lives in ‘Calicut’ city (use logical operators)
+
+mysql>  select *from CUSTOMER where PH_NO is null and CITY="IDUKKI";
++------+------+------------+--------+-------+
+| C_ID | NAME | ADDRESS    | CITY   | PH_NO |
++------+------+------------+--------+-------+
+|    8 | VINU | THEKKEDATH | IDUKKI | NULL  |
++------+------+------------+--------+-------+
+1 row in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------
+
+
 4.      List the product names if it finds any records in the invoice items table has quantity =3 (use special operators)
+
+
+
+
