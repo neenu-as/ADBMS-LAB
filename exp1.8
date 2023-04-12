@@ -103,3 +103,23 @@ mysql> select CUSTOMER.NAME,PRODUCT.P_NAME,INVOICE_MASTER.INV_DATE from CUSTOMER
 ------------------------------------------------------------------------------------------------------------------------------
 
 4.    Display all customer details and invoice details must include customer has not purchased items.
+
+mysql>  select CUSTOMER.NAME,PRODUCT.P_NAME,INVOICE_MASTER.INV_ID,INVOICE_MASTER.INV_DATE from CUSTOMER left join INVOICE_MASTER on CUSTOMER.C_ID=INVOICE_MASTER.CUST_ID left join INVOICE_ITEM on INVOICE_MASTER.INV_ID=INVOICE_ITEM.INV_ID left join PRODUCT on PRODUCT.P_ID=INVOICE_ITEM.PID;
++--------+----------+--------+------------+
+| NAME   | P_NAME   | INV_ID | INV_DATE   |
++--------+----------+--------+------------+
+| SREYA  | NULL     |      1 | 2022-05-03 |
+| KUTTU  | BLUELady |      2 | 2022-06-03 |
+| KUTTU  | NULL     |      9 | 2022-03-05 |
+| KUTTU  | NULL     |     10 | 2022-03-05 |
+| NEENU  | NULL     |      3 | 2022-07-03 |
+| NEETHU | BLUELady |      4 | 2022-08-03 |
+| NEETHU | NOTEBOOK |      4 | 2022-08-03 |
+| GEETHU | NULL     |   NULL | NULL       |
+| REETHU | NULL     |      6 | 2022-09-04 |
+| MEENU  | NULL     |      7 | 2022-09-05 |
+| VINU   | NULL     |   NULL | NULL       |
++--------+----------+--------+------------+
+11 rows in set (0.00 sec)
+********************************************************************************************************************* 
+
