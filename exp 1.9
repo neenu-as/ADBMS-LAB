@@ -1,1 +1,74 @@
 
+EXPERIMENT NO: 1.9	
+
+
+OPTIMIZING DATABASE: (Using Set, arithmetic, logical and special operators)
+*****************************************************************************
+
+
+
+mysql> select * from CUSTOMER;
++------+--------+-------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS           | CITY      | PH_NO      |
++------+--------+-------------------+-----------+------------+
+|    1 | SREYA  | VADASSHERY        | THRISSUR  | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL       | VAYANAD   | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL  | KOZHIKODE | 9339834920 |
+|    4 | NEETHU | PULLIYEAL         | CALICUT   | 9399834920 |
+|    5 | GEETHU | THEKKEDATH        | KOZHIKODE | 8281126781 |
+|    6 | REETHU | KIZHKKE PULLIYEAL | CALICUT   | 8299834420 |
+|    7 | MEENU  | KIZHKKEDATH       | CALICUT   | 8199834420 |
+|    8 | VINU   | THEKKEDATH        | IDUKKI    | NULL       |
++------+--------+-------------------+-----------+------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from INVOICE_ITEM;
++--------+------+----------+
+| INV_ID | PID  | QUANTITY |
++--------+------+----------+
+|      2 |    4 |       32 |
+|      4 |    3 |       25 |
+|      4 |    4 |       25 |
++--------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from INVOICE_MASTER;
++--------+---------+------------+
+| INV_ID | CUST_ID | INV_DATE   |
++--------+---------+------------+
+|      1 |       1 | 2022-05-03 |
+|      2 |       2 | 2022-06-03 |
+|      3 |       3 | 2022-07-03 |
+|      4 |       4 | 2022-08-03 |
+|      6 |       6 | 2022-09-04 |
+|      7 |       7 | 2022-09-05 |
+|      9 |       2 | 2022-03-05 |
+|     10 |       2 | 2022-03-05 |
++--------+---------+------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from PRODUCT;
++------+---------------+-------+
+| P_ID | P_NAME        | PRICE |
++------+---------------+-------+
+|    1 | PENCIL        |    26 |
+|    2 | PEN           |    26 |
+|    3 | NOTEBOOK      |    46 |
+|    4 | BLUELady      |   561 |
+|    5 | fog           |   612 |
+|    6 | nudetwist     |   816 |
+|    7 | floor cleaner |   918 |
++------+---------------+-------+
+7 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------
+
+1.      Display customer_id, city  who lives either in ‘CLT’ or in ‘TVM’
+
+
+
+
+
+2.      Display product details with an updated price amount(new price= old price+5rs)
+3.      Display customer details who doesn’t have phone number and lives in ‘Calicut’ city (use logical operators)
+4.      List the product names if it finds any records in the invoice items table has quantity =3 (use special operators)
