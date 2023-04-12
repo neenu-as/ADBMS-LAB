@@ -127,8 +127,16 @@ mysql>  select *from CUSTOMER where PH_NO is null and CITY="IDUKKI";
 ----------------------------------------------------------------------------------------------------------------
 
 
-4.      List the product names if it finds any records in the invoice items table has quantity =3 (use special operators)
+4.      List the product names if it finds any records in the invoice items table has quantity =32(use special operators)
 
+mysql> SELECT P_NAME FROM PRODUCT WHERE P_ID IN(SELECT PID FROM INVOICE_ITEM WHERE QUANTITY=32);
++----------+
+| P_NAME   |
++----------+
+| BLUELady |
++----------+
+1 row in set (0.00 sec)
+************************************************************************************************************8
 
 
 
