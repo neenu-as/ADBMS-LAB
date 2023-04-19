@@ -74,12 +74,48 @@ Query OK, 0 rows affected (0.00 sec)
 2.      Create a procedure to find greatest of 3 numbers.
 
 
+mysql> delimiter //
+mysql> create procedure greatest (a int,b int,c int)
+    -> begin
+    -> if(a>b) and(a>c) then
+    -> select a as 'Greatest';
+    -> elseif(b>a) and (b>c) then
+    -> select b as 'Greatest';
+    ->  else
+    -> select c as 'Greatest';
+    ->  end if;
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
 
+mysql> call greatest(4,8,7) //
++----------+
+| Greatest |
++----------+
+|        8 |
++----------+
+1 row in set (0.00 sec)
 
-
-
-
-
-
+Query OK, 0 rows affected (0.00 sec)
+------------------------------------------------------------------------------------------------------------------------
 
 3.      Create a procedure to display invoice details of a particular customer.
+
+
+delimiter //
+mysql> create procedure inv_detailss(a varchar(10))
+    ->  begin
+    -> select INV_ID,INV_DATE,PRICE,QUANTITY from CUSTOMER
+    -> natural join INVOICE_MASTER
+    -> natural join INVOICE_ITEM
+    -> natural join PRODUCT
+    -> WHERE NAME=a;
+    -> end //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call inv_detailss('KUTTU')
+    -> //
+
+
+
+
+
