@@ -1,8 +1,67 @@
+
 EXPERIMENT NO: 2.3	-PL/SQL PROGRAMS – TRIGGER
 
 
 
 1. Create a trigger to handle updates to the customer table.
+
+mysql> delimiter //
+mysql> create table customer_2(id int,name varchar(15),address varchar(15),city
+    -> varchar(25),phno bigint); //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>  delimiter //
+mysql> create trigger updateS
+    -> before update
+    -> on CUSTOMER for each row
+    -> begin
+    -> insert into customer_2
+    -> values(old.C_ID,old.NAME,old.ADDRESS,old.CITY,old.PH_NO);
+    ->  end //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select *from CUSTOMER; //
++------+--------+-------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS           | CITY      | PH_NO      |
++------+--------+-------------------+-----------+------------+
+|    1 | SREYA  | VADASSHERY        | THRISSUR  | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL       | VAYANAD   | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL  | KOZHIKODE | 9339834920 |
+|    4 | NEETHU | PULLIYEAL         | CALICUT   | 9399834920 |
+|    5 | GEETHU | THEKKEDATH        | KOZHIKODE | 8281126781 |
+|    6 | REETHU | KIZHKKE PULLIYEAL | CALICUT   | 8299834420 |
+|    7 | MEENU  | KIZHKKEDATH       | CALICUT   | 8199834420 |
+|    8 | VINU   | THEKKEDATH        | IDUKKI    | NULL       |
++------+--------+-------------------+-----------+------------+
+8 rows in set (0.01 sec)
+
+mysql> update CUSTOMER set CITY='alapuzha' where C_ID=1;
+    -> //
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from customer_2;//
++------+-------+------------+----------+------------+
+| id   | name  | address    | city     | phno       |
++------+-------+------------+----------+------------+
+|    1 | SREYA | VADASSHERY | THRISSUR | 9447834920 |
++------+-------+------------+----------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from CUSTOMER; //
++------+--------+-------------------+-----------+------------+
+| C_ID | NAME   | ADDRESS           | CITY      | PH_NO      |
++------+--------+-------------------+-----------+------------+
+|    1 | SREYA  | VADASSHERY        | alapuzha  | 9447834920 |
+|    2 | KUTTU  | PALLIPOZHIL       | VAYANAD   | 9449834920 |
+|    3 | NEENU  | THEKKE PULLIYEAL  | KOZHIKODE | 9339834920 |
+|    4 | NEETHU | PULLIYEAL         | CALICUT   | 9399834920 |
+|    5 | GEETHU | THEKKEDATH        | KOZHIKODE | 8281126781 |
+|    6 | REETHU | KIZHKKE PULLIYEAL | CALICUT   | 8299834420 |
+|    7 | MEENU  | KIZHKKEDATH       | CALICUT   | 8199834420 |
+|    8 | VINU   | THEKKEDATH        | IDUKKI    | NULL       |
++------+--------+-------------------+-----------+------------+
+8 rows in set (0.00 sec)
 
 
 
