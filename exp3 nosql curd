@@ -14,6 +14,22 @@ INVOICE> show collections;
 CUSTOMER
 PRODUCT
 
+INVOICE> db.CUSTOMER.insertMany([{c_id:"001",name:"sreya",address:"vadasshery",city:"thrissur"},{c_id:"002",name:"kuttu",address:"pallipozhil",city:"vayanad"}]) 
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64817329aa134a7ea4161045"),
+    '1': ObjectId("64817329aa134a7ea4161046")
+  }
+}
+INVOICE> db.CUSTOMER.insertMany([{c_id:"003",name:"neethu",address:"pulliyel",city:"calicut"},{c_id:"004",name:"neenu",address:"thekkepulliyeal",city:"kozhikode"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("648173daaa134a7ea4161047"),
+    '1': ObjectId("648173daaa134a7ea4161048")
+  }
+}
 
 
 
