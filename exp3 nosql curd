@@ -163,4 +163,4 @@ INVOICE> db.CUSTOMER.deleteOne({c_id:"005"})
 INVOICE> db.CUSTOMER.find({name:"meera"}).pretty()
 
 
-
+//VERIFIED
