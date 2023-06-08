@@ -10,6 +10,9 @@ INVOICE> db.createCollection("CUSTOMER")
 INVOICE> db.createCollection("PRODUCTS")
 { ok: 1 }
 
+INVOICE> show collections;
+CUSTOMER
+PRODUCT
 
 
 
