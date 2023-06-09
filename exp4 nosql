@@ -1,1 +1,51 @@
-hjh
+Assignment 4: Retrieving Data
+
+1.      Write a MongoDB query to display the customer documents having city ‘ekm’,’tvm’.
+
+
+
+INVOICE> db.CUSTOMER.find({$or:[{city:"ernakulam"},{city:"trivandrum"}]}).pretty();
+[
+  {
+    _id: ObjectId("6482c9628650d90868035eda"),
+    C_ID: '005',
+    name: 'priya',
+    address: 'maanikalath',
+    city: 'ernakulam',
+    age: '52'
+  },
+  {
+    _id: ObjectId("6482c9628650d90868035edb"),
+    c_id: '006',
+    name: 'babu',
+    address: 'pallipozhil',
+    city: 'trivandrum',
+    age: '55'
+  }
+]
+
+**************************************************************************************************************
+2.     Write a MongoDB query to display all customer documents who have age >50.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.      Write a MongoDB query to find customer documents who not live in ‘tvm’.
