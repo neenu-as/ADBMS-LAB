@@ -1,0 +1,78 @@
+Assignment 5: NoSQL – AGGREGATE FUNCTIONS AND REGULAR EXPRESSIONS
+
+1.      Write a MongoDB query to sort customer details in ascending order of their name.
+
+
+INVOICE> db.CUSTOMER.find().sort({"name":1});
+[
+  {
+    _id: ObjectId("6482c9628650d90868035edb"),
+    c_id: '006',
+    name: 'babu',
+    address: 'pallipozhil',
+    city: 'trivandrum',
+    age: '55'
+  },
+  {
+    _id: ObjectId("64817329aa134a7ea4161046"),
+    c_id: '002',
+    name: 'kuttu',
+    address: 'pallipozhil',
+    city: 'vayanad',
+    age: '25'
+  },
+  {
+    _id: ObjectId("648173daaa134a7ea4161048"),
+    c_id: '004',
+    name: 'neenu',
+    address: 'thekkepulliyeal',
+    city: 'kozhikode',
+    age: '31'
+  },
+  {
+    _id: ObjectId("648173daaa134a7ea4161047"),
+    c_id: '003',
+    name: 'neethu',
+    address: 'pulliyel',
+    city: 'kozhikode',
+    age: '28'
+  },
+  {
+    _id: ObjectId("6482c9628650d90868035eda"),
+    C_ID: '005',
+    name: 'priya',
+    address: 'maanikalath',
+    city: 'ernakulam',
+    age: '52'
+  },
+  {
+    _id: ObjectId("64817329aa134a7ea4161045"),
+    c_id: '001',
+    name: 'sreya',
+    address: 'vadasshery',
+    city: 'thrissur',
+    age: '20'
+  }
+]
+
+
+
+********************************************************************************************************************************
+2.      Write a MongoDB query to count number of customers in each city.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.      Write a MongoDB query to find minimum and maximum age in each city.h
