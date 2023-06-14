@@ -31,21 +31,37 @@ INVOICE> db.CUSTOMER.find({$or:[{city:"ernakulam"},{city:"trivandrum"}]}).pretty
 
 
 
+INVOICE> db.CUSTOMER.find({age:{$gt:"50"}}).pretty();
+[
+  {
+    _id: ObjectId("6482c9628650d90868035eda"),
+    C_ID: '005',
+    name: 'priya',
+    address: 'maanikalath',
+    city: 'ernakulam',
+    age: '52'
+  },
+  {
+    _id: ObjectId("6482c9628650d90868035edb"),
+    c_id: '006',
+    name: 'babu',
+    address: 'pallipozhil',
+    city: 'trivandrum',
+    age: '55'
+  }
+]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*************************************************************************************************************************************************************
 3.      Write a MongoDB query to find customer documents who not live in ‘tvm’.
+
+
+
+
+
+
+
+
+\
+
+
