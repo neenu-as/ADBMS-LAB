@@ -56,6 +56,49 @@ INVOICE> db.CUSTOMER.find({age:{$gt:"50"}}).pretty();
 3.      Write a MongoDB query to find customer documents who not live in ‘tvm’.
 
 
+INVOICE> db.CUSTOMER.find({"city":{$ne:"trivandrum"}}).pretty();
+[
+  {
+    _id: ObjectId("64817329aa134a7ea4161045"),
+    c_id: '001',
+    name: 'sreya',
+    address: 'vadasshery',
+    city: 'thrissur',
+    age: '20'
+  },
+  {
+    _id: ObjectId("64817329aa134a7ea4161046"),
+    c_id: '002',
+    name: 'kuttu',
+    address: 'pallipozhil',
+    city: 'vayanad',
+    age: '25'
+  },
+  {
+    _id: ObjectId("648173daaa134a7ea4161047"),
+    c_id: '003',
+    name: 'neethu',
+    address: 'pulliyel',
+    city: 'kozhikode',
+    age: '28'
+  },
+  {
+    _id: ObjectId("648173daaa134a7ea4161048"),
+    c_id: '004',
+    name: 'neenu',
+    address: 'thekkepulliyeal',
+    city: 'kozhikode',
+    age: '31'
+  },
+  {
+    _id: ObjectId("6482c9628650d90868035eda"),
+    C_ID: '005',
+    name: 'priya',
+    address: 'maanikalath',
+    city: 'ernakulam',
+    age: '52'
+  }
+]
 
 
 
