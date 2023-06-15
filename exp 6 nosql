@@ -60,7 +60,7 @@ admin   180.00 KiB
 config  108.00 KiB
 local    72.00 KiB
 mydb     40.00 KiB
-INVOICE> 
+*********************************************************************
 
 
 mongorestore --db INVOICE dump/INVOICE
@@ -75,6 +75,17 @@ mongorestore --db INVOICE dump/INVOICE
 2023-06-15T15:47:42.850+0530	no indexes to restore for collection INVOICE.CUSTOMER
 2023-06-15T15:47:42.850+0530	no indexes to restore for collection INVOICE.PRODUCT
 2023-06-15T15:47:42.850+0530	10 document(s) restored successfully. 0 document(s) failed to restore.
+
+
+________________________________________________________________________________________
+
+
+INVOICE> show dbs
+INVOICE   80.00 KiB
+admin    180.00 KiB
+config   108.00 KiB
+local     72.00 KiB
+mydb      40.00 KiB
 
 
 
